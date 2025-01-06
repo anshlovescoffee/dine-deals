@@ -58,6 +58,12 @@ def start_update_sequence():
         print("Update complete. Waiting for 2 minutes...")
         time.sleep(120)  # Run every 2 minutes
 
+# Start the background scraper thread when the app starts
+def start_background_tasks():
+    update_thread = Thread(target=start_update_sequence)
+    update_thread.daemon = True  # Ensure the thread exits when the main program stops
+    update_thread.start()
+
 # Route for the home page
 @app.route('/')
 def home():
@@ -76,11 +82,5 @@ def home():
     response.set_cookie('user_id', user_id, max_age=60*60*24*365)  # Cookie expires in 1 year
     return response
 
-if __name__ == '__main__':
-    # Start the update sequence in a separate thread
-    update_thread = Thread(target=start_update_sequence)
-    update_thread.daemon = True  # Ensure the thread exits when the main program stops
-    update_thread.start()
-
-    # Run the Flask application
-    app.run(debug=True)
+# Start background tasks when the app module is loaded
+start_background_tasks()
