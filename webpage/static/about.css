@@ -1,0 +1,37 @@
+.right-container {
+    flex: 1; /* Take less space on the right */
+    display: flex;
+    flex-direction: column; /* Stack enrollment form and about container vertically */
+    gap: 20px; /* Space between enrollment form and about project container */
+}
+.about-project {
+    background-color: #1a1a1a; /* Matches the other containers */
+    padding: 20px; /* Space inside the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    margin-top: 20px; /* Space above the container */
+    color: #f3f3f3; /* Text color for readability */
+    flex: 1; /* Aligns with the enrollment container */
+}
+
+.about-project h2 {
+    color: #b1a270; /* Matches the headings in other containers */
+    font-size: 1.5rem; /* Slightly smaller than the main heading */
+    margin-bottom: 15px; /* Space below the heading */
+    text-align: center; /* Center-align the heading */
+}
+.about-project h3 {
+    color: #ffffff; /* Matches the headings in other containers */
+    font-size: 1rem; /* Slightly smaller than the main heading */
+    margin-bottom: 7px; /* Space below the heading */
+    text-align: left; /* Center-align the heading */
+    font-weight: bold;
+}
+
+.about-project p {
+    font-size: 1rem; /* Standard paragraph text size */
+    line-height: 1.8; /* Improves readability */
+    margin: 0; /* Remove default margin */
+    text-align: justify; /* Align text for a cleaner layout */
+}
+

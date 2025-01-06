@@ -1,0 +1,44 @@
+td .dislikecontainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  td .dislikecontainer {
+    display: inline-flex;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    align-items: center;
+
+    
+  }
+  
+  td svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    transition: all 0.3s;
+    fill: #666;
+  }
+  
+  svg:hover {
+    transform: scale(1.1) rotate(-10deg);
+  }
+  
+  .dislikecontainer input:checked ~ svg {
+    fill: #ff365e;
+  }
+  
+
+td .dislikecontainer span {
+    font-size: 16px; /* Match the size of the SVG for consistency */
+    line-height: 24px; /* Vertically align with the SVG */
+    text-align: center; /* Ensure text stays centered */
+    display: inline-block; /* Keep it inline with the button */
+    min-width: 20px; /* Ensure consistent space for counts */
+}

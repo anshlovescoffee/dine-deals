@@ -1,0 +1,136 @@
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='like.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dislike.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='enrollment.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Main Content Container -->
+        <div class="container main-content">
+            <h1>DineDeals</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Origin</th>
+                        <th>Promo Code</th>
+                        <th>Like Count</th>
+                        <th>Date Found</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for code in promo_codes %}
+                    <tr>
+                        <td>{{ code.origin }}</td>
+                        <td>{{ code.promocode }}</td>
+                        <td>
+                            <div class="reaction-container">
+                                <label class="likecontainer">
+                                    <input id="like-{{ code.id }}" type="checkbox" onclick="likeCode({{ code.id }})"
+                                    {% if code.user_action == 'like' %} checked {% endif %}>
+                                    <svg id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                      <path d="M29.845,17.099l-2.489,8.725C26.989,27.105,25.804,28,24.473,28H11c-0.553,0-1-0.448-1-1V13c0-0.215,0.069-0.425,0.198-0.597l5.392-7.24C16.188,4.414,17.05,4,17.974,4C19.643,4,21,5.357,21,7.026V12h5.002c1.265,0,2.427,0.579,3.188,1.589C29.954,14.601,30.192,15.88,29.845,17.099z" id="XMLID_254_"></path>
+                                      <path d="M7,12H3c-0.553,0-1,0.448-1,1v14c0,0.552,0.447,1,1,1h4c0.553,0,1-0.448,1-1V13C8,12.448,7.553,12,7,12zM5,25.5c-0.828,0-1.5-0.672-1.5-1.5c0-0.828,0.672-1.5,1.5-1.5c0.828,0,1.5,0.672,1.5,1.5C6.5,24.828,5.828,25.5,5,25.5z" id="XMLID_256_"></path>
+                                    </svg>
+                                    <span id="like-count-{{ code.id }}">{{ code.likes }}</span>
+                                </label>
+                                <label class="dislikecontainer">
+                                    <input id="dislike-{{ code.id }}" type="checkbox" onclick="dislikeCode({{ code.id }})"
+                                    {% if code.user_action == 'dislike' %} checked {% endif %}>
+                                    <svg id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <path d="M2.156,14.901l2.489-8.725C5.012,4.895,6.197,4,7.528,4h13.473C21.554,4,22,4.448,22,5v14  c0,0.215-0.068,0.425-0.197,0.597l-5.392,7.24C15.813,27.586,14.951,28,14.027,28c-1.669,0-3.026-1.357-3.026-3.026V20H5.999  c-1.265,0-2.427-0.579-3.188-1.589C2.047,17.399,1.809,16.12,2.156,14.901z" id="XMLID_259_"></path>
+                                        <path d="M25.001,20h4C29.554,20,30,19.552,30,19V5c0-0.552-0.446-1-0.999-1h-4c-0.553,0-1,0.448-1,1v14  C24.001,19.552,24.448,20,25.001,20z M27.001,6.5c0.828,0,1.5,0.672,1.5,1.5c0,0.828-0.672,1.5-1.5,1.5c-0.828,0-1.5-0.672-1.5-1.5  C25.501,7.172,26.173,6.5,27.001,6.5z" id="XMLID_260_"></path>
+                                    </svg>
+                                    <span id="dislike-count-{{ code.id }}">{{ code.dislikes }}</span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>{{ code.created_at }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="right-container">
+
+        <!-- Enrollment Form Container -->
+        <div class="container enrollment-form">
+            <h2>Enroll for Updates</h2>
+            <form id="enrollmentForm">
+                <label for="phone">Enter your phone number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" pattern="\(\d{3}\) \d{3}-\d{4}" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+
+        <!-- About This Project Container -->
+        <div class="container about-project">
+            <h2>About This Project</h2>
+            <h3>Tech Used </h3>
+            <p>Front-End: HTML, CSS, JavaScript</p>
+            <p>Back-End: Python (Flask)</p>
+            <p>Web Scraping: Beautiful Soup </p>
+            <p>Database: MySQL</p>
+
+            <h3> Why?</h3>
+            <p>As a broke college student surviving on ramen, hopes, and dreams, I stumbled upon the magical world of UberEats and Postmates discounts—like $20 off a $20 order (hello, free food!). The only problem? Hunting down these promo codes was like searching for buried treasure. So, I thought, "Why not make it easier for everyone to feast for free?" And just like that, DineDeals was born to save time, money, and maybe even your GPA.</p>
+            <h3> How it Works</h3>
+            <p> DineDeals is like your personal foodie detective, scouring the internet out for promo codes to save you hours of tedious searching. While it’s not 100% accurate, that’s where the upvote/downvote system comes in. Users can rate codes to ensure the best deals are easy to identify, making it easier for everyone to feast on discounts. Plus, by enrolling (coming soon!!), you'll get the hottest discounts sent straight to your phone—no effort required. All you have to do is sit back, relax, and let the free food roll in. </p>
+            <h3> Challenges </h3>
+            <p> Finding reliable promo codes was tough—websites change constantly, and not every code works for everyone. Scraping data from anti-bot sites was another headache, but clever automation and python saved the day. </p>
+            <h3>Future Plans</h3>
+            <p>Expanding Platforms: While codes aren't frequently given out on other delivery services, it would be nice to widen the scope of DineDeals.</p>
+            <p>Smarter Algorithms: Improve code accuracy with advanced filtering.</p>
+            <p>User Contributions: Enable users to submit and share their own promo codes.</p>
+            <h3>Curious About How it Works?</h3>
+            <p>Check out the open source repo:</p>
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script>
+    function likeCode(promocodeId) {
+        const dislikeCheckbox = document.querySelector(`#dislike-${promocodeId}`);
+        if (dislikeCheckbox) dislikeCheckbox.checked = false;
+        fetch('/like', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ user_id: '123', promocode_id: promocodeId })
+        })    .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                document.querySelector(`#like-count-${promocodeId}`).textContent = data.likes;
+                document.querySelector(`#dislike-count-${promocodeId}`).textContent = data.dislikes;
+            } else {
+                alert(data.message);
+            }
+        });
+    }
+
+    function dislikeCode(promocodeId) {
+        const likeCheckbox = document.querySelector(`#like-${promocodeId}`);
+        if (likeCheckbox) likeCheckbox.checked = false;
+        fetch('/dislike', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ user_id: '123', promocode_id: promocodeId })
+        }).then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                document.querySelector(`#like-count-${promocodeId}`).textContent = data.likes;
+                document.querySelector(`#dislike-count-${promocodeId}`).textContent = data.dislikes;
+            } else {
+                alert(data.message);
+            }
+        });
+    }
+</script>

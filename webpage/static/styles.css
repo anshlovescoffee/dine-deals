@@ -1,0 +1,69 @@
+/* General body styling */
+body {
+    font-family: "Funnel Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    background-color: #2a2a2a; /* Subtle and soft background color */
+    color: #ffffff; /* Darker font color for better readability */
+    margin: 20px;
+    line-height: 1.6; /* Improve text readability */
+}
+
+/* Heading styling */
+h1 {
+    color: #b1a270; /* A richer red for better contrast */
+    font-size: 3.8rem; /* Slightly larger and bold */
+    font-weight: 700; /* Make it bold */
+    text-align: center; /* Center align the headings */
+    margin-bottom: 20px;
+    letter-spacing: 1.5px; /* Add spacing for a modern look */
+}
+
+/* Paragraph styling */
+p {
+    color: #f3f3f3; /* Slightly darker text for better contrast */
+    font-size: 1rem; /* Standard size */
+    line-height: 1.8; /* Improve line spacing */
+    margin-bottom: 15px; /* Add spacing between paragraphs */
+}
+
+/* Add a box or container styling */
+.container {
+    background: #1a1a1a; /* White background for content areas */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 0 left; /* Center the container */
+    max-width: 1000px; /* Set a maximum width */
+}
+
+table {
+    width: 100%; /* Make the table stretch to the container width */
+    border-collapse: collapse; /* Remove gaps between table cells for a cleaner look */
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px; /* Add some space inside the cells */
+    text-align: center; /* Center-align the text */
+    vertical-align: middle; /* Vertically aligns content */
+
+
+}
+
+th {
+    background-color: #2a2a2a; /* Light gray background for the header */
+    color:#8a8888;
+
+}
+
+tr:nth-child(even) {
+    background-color: #2a2a2a; /* Subtle background color for alternating rows */
+
+}
+
+tr:hover {
+    background-color: #2a2a2a; /* Highlight row on hover for better UX */
+}
+
