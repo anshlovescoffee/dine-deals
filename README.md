@@ -64,6 +64,7 @@ Your .env file should look like this:
     DATABASE_NAME=PromoCodeDB 
     
 6. Run the app:
+   
    ```bash
    python3 webpage/app.py
 
