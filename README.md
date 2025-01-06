@@ -52,7 +52,7 @@ This is an open-source Flask application for scraping and displaying promo codes
     KEY `promocode_id` (`promocode_id`),
     KEY `idx_user_promo` (`user_id`,`promocode_id`),
     CONSTRAINT `useractivity_ibfk_1` FOREIGN KEY (`promocode_id`) REFERENCES `PromoCodes` (`id`)
-    ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+    ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 5. Create a .env file inside the webpage file.
 Your .env file should look like this:
