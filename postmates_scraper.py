@@ -9,7 +9,7 @@ reddit = praw.Reddit(
     user_agent='postmates scraper by anshlovescoffee',  # A descriptive user agent (e.g., "RedditScraperBot/0.1 by your_username")
 )
 
-url = "https://www.reddit.com/r/postmates/comments/1hqyk7y/monthly_existing_user_promo_code_thread/"
+url = "https://www.reddit.com/r/postmates/comments/1ggzmcs/monthly_existing_user_promo_code_thread/"
 url2 = "https://forums.dansdeals.com/index.php?topic=133042.0;prev_next=prev#new"
 
     
