@@ -16,18 +16,25 @@ This is an open-source Flask application for scraping and displaying promo codes
     cd dine-deals-main
 
 2. Create a virtual environment:
-    python3 -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-3. Install Dependencies:
-    pip install -r requirements.txt
+4. Install Dependencies:
+   ```bash
+   pip install -r requirements.txt
 
-4. Set up the database:
-    Create a MySQL database named PromoCodeDB 
-    THE DATABASE NAME IS CASE SENSITIVE 
-    For more help visit: https://dev.mysql.com/doc/mysql-getting-started/en/
+6. Set up the database:
+    - Download the latest version of mysql-server
+    - Create a MySQL database named PromoCodeDB 
+    - THE DATABASE NAME IS CASE SENSITIVE 
+     For more help visit: https://dev.mysql.com/doc/mysql-getting-started/en/
 
-    Add the required tables:
+    - Access the newly created Database using:
+      ```bash
+      USE PromoCodeDB;
+   
+    Add the required tables bt copying and pasting the following:
    ```bash
    CREATE TABLE `PromoCodes` (
    `id` int NOT NULL AUTO_INCREMENT,
@@ -54,7 +61,7 @@ This is an open-source Flask application for scraping and displaying promo codes
     CONSTRAINT `useractivity_ibfk_1` FOREIGN KEY (`promocode_id`) REFERENCES `PromoCodes` (`id`)
     ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-5. Create a .env file inside the webpage file.
+7. Create a .env file inside the webpage file.
 Your .env file should look like this:
    ```bash
     FLASK_SECRET_KEY=your_secret_key
@@ -63,7 +70,7 @@ Your .env file should look like this:
     DATABASE_HOST=localhost
     DATABASE_NAME=PromoCodeDB 
     
-6. Run the app:
+8. Run the app:
    
    ```bash
    python3 webpage/app.py
