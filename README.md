@@ -26,7 +26,9 @@ This is an open-source Flask application for scraping and displaying promo codes
 
 6. Set up the database:
     - Download the latest version of mysql-server
-    - Create a MySQL database named PromoCodeDB 
+    - Create a MySQL database named PromoCodeDB using:
+      ```bash
+      CREATE DATABASE PromoCodeDB;
     - THE DATABASE NAME IS CASE SENSITIVE 
      For more help visit: https://dev.mysql.com/doc/mysql-getting-started/en/
 
