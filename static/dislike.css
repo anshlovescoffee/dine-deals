@@ -36,9 +36,9 @@ td .dislikecontainer input {
   
 
 td .dislikecontainer span {
-    font-size: 16px; /* Match the size of the SVG for consistency */
-    line-height: 24px; /* Vertically align with the SVG */
-    text-align: center; /* Ensure text stays centered */
-    display: inline-block; /* Keep it inline with the button */
-    min-width: 20px; /* Ensure consistent space for counts */
+    font-size: 16px; 
+    line-height: 24px; 
+    text-align: center; 
+    display: inline-block; 
+    min-width: 20px; 
 }

@@ -1,23 +1,23 @@
 .wrapper {
     display: flex;
-    justify-content: space-between; /* Space out the containers */
-    align-items: flex-start; /* Align items at the top */
-    gap: 20px; /* Add space between the containers */
+    justify-content: space-between; 
+    align-items: flex-start;
+    gap: 20px;
 }
 
 .main-content {
-    flex: 2; /* Take more space on the left */
+    flex: 2; 
 }
 
 .enrollment-form {
-    flex: 1; /* Take less space on the right */
+    flex: 1; 
     background-color: #1a1a1a;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: stretch; /* Ensure inputs/buttons fill the form width */
+    flex-direction: column; 
+    align-items: stretch;
 }
 
 .enrollment-form h2 {
@@ -29,7 +29,7 @@
 .enrollment-form form {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Space out form elements */
+    gap: 10px; 
 }
 
 .enrollment-form input[type="tel"] {

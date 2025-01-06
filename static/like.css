@@ -34,15 +34,15 @@ td .likecontainer input {
   }
   
   td .likecontainer span {
-    font-size: 16px; /* Match the size of the SVG for consistency */
-    line-height: 24px; /* Vertically align with the SVG */
-    text-align: center; /* Ensure text stays centered */
-    display: inline-block; /* Keep it inline with the button */
-    min-width: 20px; /* Ensure consistent space for counts */
+    font-size: 16px;
+    line-height: 24px; 
+    text-align: center; 
+    display: inline-block; 
+    min-width: 20px; 
 }
 
 .reaction-container {
-  display: inline-flex; /* Makes the like and dislike buttons align horizontally */
+  display: inline-flex; 
   align-items: center;
-  gap: 10px; /* Add space between the like count and dislike button */
+  gap: 10px; 
 }
