@@ -29,22 +29,30 @@ This is an open-source Flask application for scraping and displaying promo codes
 
     Add the required tables:
    ```bash
-    CREATE TABLE PromoCodes (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        promocode VARCHAR(255) NOT NULL,
-        origin VARCHAR(255),
-        likes INT DEFAULT 0,
-        dislikes INT DEFAULT 0,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
+   CREATE TABLE `PromoCodes` (
+   `id` int NOT NULL AUTO_INCREMENT,
+   `promocode` varchar(50) NOT NULL,
+   `origin` enum('Postmates','UberEATS') NOT NULL,
+   `likes` int DEFAULT '0',
+   `dislikes` int DEFAULT '0',
+   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `promocode` (`promocode`,`origin`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=14296 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-    CREATE TABLE UserActivity (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        user_id INT NOT NULL,
-        promocode_id INT NOT NULL,
-        action ENUM('like', 'dislike'),
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
+    CREATE TABLE `UserActivity` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `user_id` varchar(255) NOT NULL,
+    `promocode_id` int NOT NULL,
+    `action` enum('like','dislike') NOT NULL,
+    `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `user_id` (`user_id`,`promocode_id`),
+    UNIQUE KEY `unique_user_action` (`user_id`,`promocode_id`),
+    KEY `promocode_id` (`promocode_id`),
+    KEY `idx_user_promo` (`user_id`,`promocode_id`),
+    CONSTRAINT `useractivity_ibfk_1` FOREIGN KEY (`promocode_id`) REFERENCES `PromoCodes` (`id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
 5. Create a .env file inside the webpage file.
 Your .env file should look like this:
